@@ -1,0 +1,9 @@
+
+#client {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+#client:hover {
+  text-decoration: underline;
+}
