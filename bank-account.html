@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title>Bank Account</title>
+  </head>
+  <body>
+    <h1><center>Credit Swiss</center></h1>
+    <div class="container">
+      <div class="col-md-4">
+        <form id="accountCreateForm">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" placeholder="First Name + Last Name" >
+          <label for="initialDeposit">Initial Deposit:</label>
+          <input type="number" step="0.01" id="initialDeposit">
+          <button type="btn btn-default" type="submit">Create Account</button>
+        </form>
+      </div>
+
+      <div class="col-md-4">
+        <form id="accountTransactionForm">
+          <label for="deposit">Deposit:</label><br>
+          <input type="number" step="0.01" id="deposit">
+          <label for="withdraw">Withdraw:</label>
+          <input type="number" step="0.01" id="withdraw">
+          <button type="btn btn-default" type="submit">Submit</button>
+      </div>
+
+      <div class="col-md-4" id= "balance">
+        <h3>Your balance is:</h3>
+        <h4>$<span id="accountBalance"></span></h4>
+      </div>
+    </div>
+    <div class= "client-list" id="client-list">
+      <h2>List of Clients:</h2>
+
+  </body>
+</html>
