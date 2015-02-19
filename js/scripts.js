@@ -42,9 +42,10 @@ var validateAmount = function(amount) {
 
 
 $(document).ready(function(){
-var account = Object.create(BankAccount);
+var currentAccount;
   $('form#accountCreateForm').submit(function(event){
     event.preventDefault()
+var account = Object.create(BankAccount);
 
     var name= $('input#name').val();
     $('input#name').val("")
@@ -56,34 +57,39 @@ var account = Object.create(BankAccount);
 
     $('#accountName').text(account.name);
     $('#accountBalance').text(account.balance);
-    $('#list').append("<li id='client'>" + account.name + "</li>");
-  });
+    $('#list').append("<li class='client'>" + account.name + "</li>");
 
   $('form#accountTransactionForm').submit(function(event){
-    event.preventDefault()
+  event.preventDefault()
 
-    var deposit = parseFloat($('input#deposit').val());
-    var withdrawal = parseFloat($('input#withdraw').val());
-    $('input#deposit').val("");
-    $('input#withdraw').val("");
+  var deposit = parseFloat($('input#deposit').val());
+  var withdrawal = parseFloat($('input#withdraw').val());
+  $('input#deposit').val("");
+  $('input#withdraw').val("");
 
 
-    if (isNaN(deposit)){
-      deposit=0.00;
-    }
-    if (isNaN(withdrawal)) {
-       withdrawal=0.00;
-     }
-    account.deposit(parseFloat(deposit));
-    account.withdraw(parseFloat(withdrawal));
+  if (isNaN(deposit)){
+    deposit=0.00;
+  }
+  if (isNaN(withdrawal)) {
+     withdrawal=0.00;
+   }
+  account.deposit(parseFloat(deposit));
+  account.withdraw(parseFloat(withdrawal));
 
-    $('#accountBalance').text(account.balance.toFixed(2));
+  $('#accountBalance').text(account.balance.toFixed(2));
+});
+
+  $('.client').last().click(function(event) {
+    currentAccount=account;
+    $('#accountName').text(currentAccount.name);
+    $("#accountBalance").text(currentAccount.balance);
+
+
   });
+});
 
-  $('#client').last().click(function(event) {
-    event.preventDefault();
-    $('#accountName').text(account.name);
-    $("#acccountBalance").text(account.balance);
-  });
+
+
 
 });
